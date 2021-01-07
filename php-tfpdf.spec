@@ -1,7 +1,7 @@
 %global php_libname          tfpdf
 Name:      php-%{php_libname}
 Version:   1.32
-Release:   1%{?dist}
+Release:   2%{?dist}
 License:   LGPL
 Summary:   a modified version of FPDF that adds UTF-8 support in generated PDF documents
 Group:     Development/Libraries
@@ -11,7 +11,7 @@ URL:       https://fpdf.org/en/script/script92.php
 Source:    https://github.com/Setasign/tFPDF/archive/v%{version}.tar.gz
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
-Requires:  php-zlib
+Requires:  php-zlib php-mbstring
 BuildRequires:  dos2unix
 BuildArch: noarch
 
@@ -46,5 +46,7 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Wed Jan 6 2021 Bishop <bishopolis@gmail.com> - 2.3.4-2
+- added mbstring dependency
 * Mon Oct 12 2020 Bishop <bishopolis@gmail.com> - 2.3.4-1
 - Initial Packaging
